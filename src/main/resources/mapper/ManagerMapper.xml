@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.ManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Manager" >
+    <id column="sysid" property="sysid" jdbcType="VARCHAR" />
+    <result column="managerid" property="managerid" jdbcType="VARCHAR" />
+    <result column="managername" property="managername" jdbcType="VARCHAR" />
+    <result column="managerpasswrod" property="managerpasswrod" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sysid, managerid, managername, managerpasswrod
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from manager
+    where sysid = #{sysid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from manager
+    where sysid = #{sysid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Manager" >
+    insert into manager (sysid, managerid, managername, 
+      managerpasswrod)
+    values (#{sysid,jdbcType=VARCHAR}, #{managerid,jdbcType=VARCHAR}, #{managername,jdbcType=VARCHAR}, 
+      #{managerpasswrod,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Manager" >
+    insert into manager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysid != null" >
+        sysid,
+      </if>
+      <if test="managerid != null" >
+        managerid,
+      </if>
+      <if test="managername != null" >
+        managername,
+      </if>
+      <if test="managerpasswrod != null" >
+        managerpasswrod,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysid != null" >
+        #{sysid,jdbcType=VARCHAR},
+      </if>
+      <if test="managerid != null" >
+        #{managerid,jdbcType=VARCHAR},
+      </if>
+      <if test="managername != null" >
+        #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="managerpasswrod != null" >
+        #{managerpasswrod,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Manager" >
+    update manager
+    <set >
+      <if test="managerid != null" >
+        managerid = #{managerid,jdbcType=VARCHAR},
+      </if>
+      <if test="managername != null" >
+        managername = #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="managerpasswrod != null" >
+        managerpasswrod = #{managerpasswrod,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sysid = #{sysid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Manager" >
+    update manager
+    set managerid = #{managerid,jdbcType=VARCHAR},
+      managername = #{managername,jdbcType=VARCHAR},
+      managerpasswrod = #{managerpasswrod,jdbcType=VARCHAR}
+    where sysid = #{sysid,jdbcType=VARCHAR}
+  </update>
+</mapper>
