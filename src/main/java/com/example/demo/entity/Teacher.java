@@ -1,50 +1,33 @@
-package com.example.demo.entity;// default package
+package com.example.demo.entity;
 
-/**
- * Teacher entity. @author MyEclipse Persistence Tools
- */
-public class Teacher implements java.io.Serializable {
+public class Teacher {
+    private String sysid;
 
-	// Fields
+    private String teacherid;
 
-	private String sysid;
-	private String teacherId;
-	private String password;
+    private String password;
 
-	// Constructors
+    public String getSysid() {
+        return sysid;
+    }
 
-	/** default constructor */
-	public Teacher() {
-	}
+    public void setSysid(String sysid) {
+        this.sysid = sysid == null ? null : sysid.trim();
+    }
 
-	/** full constructor */
-	public Teacher(String teacherId, String password) {
-		this.teacherId = teacherId;
-		this.password = password;
-	}
+    public String getTeacherid() {
+        return teacherid;
+    }
 
-	public String getSysid() {
-		return this.sysid;
-	}
+    public void setTeacherid(String teacherid) {
+        this.teacherid = teacherid == null ? null : teacherid.trim();
+    }
 
-	public void setSysid(String sysid) {
-		this.sysid = sysid;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getTeacherId() {
-		return this.teacherId;
-	}
-
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
 }
