@@ -2,6 +2,8 @@ package com.example.demo.dao;
 
 import com.example.demo.entity.Subject;
 
+import java.util.List;
+
 public interface SubjectMapper {
     int deleteByPrimaryKey(Integer stid);
 
@@ -11,7 +13,11 @@ public interface SubjectMapper {
 
     Subject selectByPrimaryKey(Integer stid);
 
+    Subject selectByStTitle(String stTitle);
+
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
+
+    List<Subject> getAllSubjects();
 }

@@ -11,6 +11,8 @@ public interface TeacherMapper {
 
     Teacher selectByPrimaryKey(String sysid);
 
+    Teacher selectByTeacherId(String teacherId);
+
     int updateByPrimaryKeySelective(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
