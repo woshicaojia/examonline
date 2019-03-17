@@ -13,22 +13,22 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/examonline" userId="root"
-                        password="wx1234"/>
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/examonlinedb" userId="root"
+                        password="root"/>
 
         <javaModelGenerator targetPackage="com.example.demo.entity"
-                            targetProject="E:/Workspaces/idea/examonline/src/main/java">
+                            targetProject="F:\examonline\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="E:/Workspaces/idea/examonline/src/main/resources">
+                         targetProject="F:\examonline\src\main\resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.example.demo.dao"
-                             targetProject="E:/Workspaces/idea/examonline/src/main/java" type="XMLMAPPER">
+                             targetProject="F:\examonline\src\main\java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -37,7 +37,7 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>-->
 
-        <table tableName="manager" domainObjectName="Manager"
+        <table tableName="subject" domainObjectName="Subject"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
