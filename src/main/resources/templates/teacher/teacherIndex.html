@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>老师登录成功</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.default.css}" type="text/css" ></link>
+    <link rel="stylesheet" th:href="@{/static/css/responsive-tables.css}" type="text/css"></link>
+
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-migrate-1.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-ui-1.9.2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.uniform.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.cookie.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/modernizr.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/responsive-tables.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/custom.js}"></script>
+</head>
+<body>
+<div class="mainwrapper">
+    <div class="header">
+        <div class="logo">
+            <a><img th:src="@{/static/images/logo.png}" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img th:src="@{/static/images/photos/thumb1.png}" alt="" />
+                        <div class="userinfo">
+                            <h5 th:text="${teacher.teacherid}"><small>you are welcome</small></h5>
+                            <ul>
+                                <li><a href="/exam/login">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="leftpanel" style="margin-left: 0px;">
+        <div class="leftmenu">
+            <ul class="nav nav-tabs nav-stacked">
+                <li class="nav-header">Navigation</li>
+                <li class="dropdown active"><a href=""><span class="iconfa-pencil"></span> 学生管理</a>
+                    <ul>
+                        <li><a href="../teacher/addStudent">添加学生</a></li>
+                        <li><a>查询所有学生</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href=""><span class="iconfa-briefcase"></span> 试题管理</a>
+                    <ul>
+                        <li><a>添加试题</a></li>
+                        <li><a>查询所有试题</a></li>
+                        <li><a>搜索试题</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="rightpanel">
+        <ul class="breadcrumbs">
+            <li><a><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+            <li class="right">
+                <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> Color Skins</a>
+                <ul class="dropdown-menu pull-right skin-color">
+                    <li><a href="default">Default</a></li>
+                    <li><a href="navyblue">Navy Blue</a></li>
+                    <li><a href="palegreen">Pale Green</a></li>
+                    <li><a href="red">Red</a></li>
+                    <li><a href="green">Green</a></li>
+                    <li><a href="brown">Brown</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="maincontent" style="">
+            <div class="maincontentinner">
+                <img alt="" th:src="@{/static/images/zhongyiyao.png}" />
+                <br /><br />
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2018. All Rights Reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+   Query(document).ready(function(){
+        // dynamic table
+        jQuery('#dyntable').dataTable({
+            "sPaginationType": "full_numbers",
+            "aaSortingFixed": [[0,'asc']],
+            "fnDrawCallback": function(oSettings) {
+                jQuery.uniform.update();
+            }
+        });
+
+        jQuery('#dyntable2').dataTable( {
+            "bScrollInfinite": true,
+            "bScrollCollapse": true,
+            "sScrollY": "300px"
+        });
+
+    });
+    /*]]>*/
+</script>
+</body>
+</html>

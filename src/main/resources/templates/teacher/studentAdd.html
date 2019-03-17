@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>添加学生</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.default.css}" type="text/css" ></link>
+    <link rel="stylesheet" th:href="@{/static/css/responsive-tables.css}" type="text/css"></link>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap-fileupload.min.css}" type="text/css"></link>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap-timepicker.min.css}" type="text/css"></link>
+
+    <script type="text/javascript" th:src="@{/static/js/forms.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-migrate-1.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery-ui-1.9.2.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.uniform.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/jquery.cookie.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/modernizr.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/responsive-tables.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/custom.js}"></script>
+</head>
+<body>
+<div class="mainwrapper">
+    <div class="header">
+        <div class="logo">
+            <a><img th:src="@{/static/images/logo.png}" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img src="/static/images/photos/thumb1.png" alt="" />
+                        <div class="userinfo">
+                            <h5>${teacher.teacherid} <small>you are welcome</small></h5>
+                            <ul>
+                                <li><a href="/exam/login">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul><!--headmenu-->
+        </div>
+    </div>
+
+
+    <div class="leftpanel" style="margin-left: 0px;">
+
+        <div class="leftmenu">
+            <ul class="nav nav-tabs nav-stacked">
+                <li class="nav-header">Navigation</li>
+
+                <li class="dropdown active"><a href=""><span class="iconfa-pencil"></span> 学生管理</a>
+                    <ul>
+                        <li class="actives"><a>添加学生</a></li>
+                        <li><a>查询所有学生</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href=""><span class="iconfa-briefcase"></span> 试题管理</a>
+                    <ul>
+                        <li><a>添加试题</a></li>
+                        <li><a>查询所有试题</a></li>
+                        <li><a>搜索试题</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div><!--leftmenu-->
+
+    </div><!-- leftpanel -->
+
+
+    <div class="rightpanel">
+
+        <ul class="breadcrumbs">
+            <li><a><i class="iconfa-home"></i></a> <span class="separator"></span></li>
+            <li>学生管理 <span class="separator"></span></li>
+            <li>添加学生</li>
+
+            <li class="right">
+                <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> Color Skins</a>
+                <ul class="dropdown-menu pull-right skin-color">
+                    <li><a href="default">Default</a></li>
+                    <li><a href="navyblue">Navy Blue</a></li>
+                    <li><a href="palegreen">Pale Green</a></li>
+                    <li><a href="red">Red</a></li>
+                    <li><a href="green">Green</a></li>
+                    <li><a href="brown">Brown</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+        <div class="maincontent" style="">
+            <div class="maincontentinner">
+
+                <div class="widget">
+                    <h4 class="widgettitle">添加学生</h4>
+                    <div class="widgetcontent">
+                        <form class="stdform" action="" method="post">
+
+                            <label>学生编号：</label>
+                            <span class="field">
+                      			<input type="text" name="studentID" class="input-xlarge" placeholder="请输入..." required="required" onkeyup="showStatus(this.value)"/>
+                            	<span id="txt"></span><!-- 验证 -->
+                            </span>
+
+                            <label>学生姓名：</label>
+                            <span class="field"><input type="text" name="studentName" class="input-xlarge" placeholder="请输入..." required="required" /></span>
+
+
+                            <label>教师编号：</label>
+                            <span class="field"><input type="text" name="teacherID" class="input-xlarge" placeholder="请输入..." required="required" /></span>
+
+
+                            <label>所属班级:</label>
+                            <span class="field">
+                          	  <select name="sclass" class="form-control">
+                          	  	<option value="移动云办公" selected="selected">移动云办公</option>
+                          	  	<option value="会计信息化">会计信息化</option>
+                          	  	<option value="新媒体工程">新媒体工程</option>
+                          	  </select>
+                            </span>
+
+                            <p class="stdformbutton">
+                                <input class="btn btn-primary" id="tijiao" type="submit" value="录入"/>
+                                <input class="btn btn-primary" type="reset" value="重置"/>
+                            </p>
+
+                        </form>
+                    </div><!--widgetcontent-->
+                </div><!--widget-->
+
+                <br /><br />
+
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2018. All Rights Reserved.</span>
+                    </div>
+
+                </div><!--footer-->
+
+            </div><!--maincontentinner-->
+        </div><!--maincontent-->
+
+    </div><!--rightpanel-->
+
+</div><!--mainwrapper-->
+</body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    jQuery(document).ready(function(){
+        debugger;
+        jQuery("#tijiao").click(function(){
+            var data=jQuery(".stdform").serialize();
+            jQuery.ajax({
+                type:'post',
+                data:data,
+                url:'/teacher/save',
+                dateType:'json',
+                success:function(){
+                    alert("学生信息保存成功!");
+                }
+            })
+        })
+    })
+    /*]]>*/
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <script th:src="@{/static/js/jquery-3.3.1.min.js}"></script>
+    <title>ajax</title>
+</head>
+<body>
+<form id="peopleInfo">
+    用户id:<input type="text" name="pid"/><br/>
+    用户名:<input type="text" name="name"/><br/>
+    生  日:<input type="text" name="birthday"/><br/>
+    邮  箱:<input type="text" name="email"/><br/>
+    <a th:onclick="'javascript:saveall()'">保存</a>
+</form>
+<script th:inline="javascript">
+    //var obj = window.document.location;
+    //var BASE_PATH = obj.href.substring(0, obj.href.indexOf(obj.pathname));
+    /*<![CDATA[*/
+    var da=$("#peopleInfo").serialize();
+    function saveall(){
+        debugger;
+        //var basePath = [[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]];
+        console.log(da);
+        $.ajax({
+            url:'/people/testpeop',
+            data:$("#peopleInfo").serializeArray(),
+            method:'post',
+            dateType: "json",
+            success:function(data){
+                alert(data);
+            }
+            /*error:function(){
+                alert("服务器错误");
+                alert("haha");
+                window.location.href=basePath+"/error.html";
+            }*/
+        });
+    }
+    /*]]>*/
+</script>
+</body>
+</html>
