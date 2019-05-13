@@ -23,7 +23,8 @@ public class TeacherController {
 
     @RequestMapping(value = "/addStudent")
     public String addStudent(Model model, HttpServletResponse response, HttpServletRequest request){
-        Teacher teacher=(Teacher)request.getSession().getAttribute("teacherSession");
+            
+    	Teacher teacher=(Teacher)request.getSession().getAttribute("teacherSession");
         model.addAttribute("teacher",teacher);
         return "teacher/studentAdd";
     }
