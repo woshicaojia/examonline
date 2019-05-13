@@ -26,6 +26,8 @@ public class LoginController {
         return "login";
     }
     @RequestMapping(value="/main",method = RequestMethod.POST)
+
+    //登录
     public String LoginSuccess(Model model, HttpServletRequest request, HttpServletResponse response,String username,String password,String role){
         //String username=request.getParameter("username");
         //String password=request.getParameter("password");
