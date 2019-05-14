@@ -19,7 +19,7 @@
 <div class="loginpanel">
     <div class="loginpanelinner">
         <div class="logo animate0 bounceIn"><img th:src="@{/static/images/logo.png}" alt="" /></div>
-        <form id="login" action="/exam/main" method="post">
+        <form id="login" th:action="@{exam/main}" method="post">
 
             <div class="inputwrapper login-alert">
                 <div class="alert alert-error">Invalid username or password</div>
