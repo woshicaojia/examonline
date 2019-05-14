@@ -24,13 +24,23 @@ import static org.junit.Assert.*;
 //IDEA有个快捷键，在dao层类下，ctrl+alt+t能自动生成测试类放在test目录下。
 public class TeacherMapperTest {
     @Autowired
-    private TeacherServiceImpl teacherService;
+    private TeacherService teacherService;
 
 
     @Test
     public void Test01(){
         Teacher teacher=teacherService.getTeacherInfo("10001");
         System.out.println(teacher.getPassword());
+    }
+
+    @Test
+    public void TestAddTeacher(){
+        Teacher teacher = new Teacher("","10002","pwd1002");
+        if(teacherService.addTeacher(teacher)>0){
+            System.out.println("添加成功");
+        }else{
+            System.out.println("添加失败");
+        }
     }
 
 }
