@@ -131,3 +131,13 @@ CREATE TABLE `manager` (
 -- ----------------------------
 -- Records of manager
 -- ----------------------------
+INSERT INTO `student` VALUES ('3hrjk2h4kh24kjh2jkh3jk', '5', '始皇', 'shihuang1', 1, '1班');
+INSERT INTO `student` VALUES ('67df6d78sa8f6sa8fs8a6f8saf', '9', '三藏', 'sanzang', 1, '2班');
+INSERT INTO `student` VALUES ('6d87f7sa8f687asf678saf67sa', '8', '沙僧', 'laosha', 2, '2班');
+INSERT INTO `student` VALUES ('7d89f79sa7fsa9fd89sa', '1', '张三', 'zhangsan1', 1, '1班');
+INSERT INTO `student` VALUES ('7fds7f897d89f7f8d99d8', '2', '李四', 'lisi2', 1, '1班');
+INSERT INTO `student` VALUES ('df7asd6f7dsa6f78sa6f87as', '10', '如来', 'fozu', 2, '3班');
+INSERT INTO `student` VALUES ('f798ds7f9sa7f8asfd7s8a9fa', '4', '赵六', 'zhaoliu', 1, '1班');
+INSERT INTO `student` VALUES ('f7df7sf7as67dfas7asfa', '6', '悟空', 'wukong', 1, '2班');
+INSERT INTO `student` VALUES ('fd6s78f678as6f8as', '3', '王麻子', 'wanwu3', 2, '1班');
+INSERT INTO `student` VALUES ('h45jk43h25kh234kj5', '7', '八戒', 'bajie', 3, '2班');
