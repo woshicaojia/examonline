@@ -3,6 +3,8 @@ package com.example.demo.service.impl;
 import com.example.demo.dao.StudentMapper;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,14 @@ public class StudentServiceImpl implements StudentService {
     //保存一个学生记录
     public void saveStudent(Student student){
         studentMapper.insert(student);
+    }
+
+    public List<Student> findAll(){
+        return studentMapper.findAll();
+    }
+
+    public Page<Student> findByPage(int pageNo,int pageSize){
+        PageHelper.startPage(pageNo,pageSize);
+        return studentMapper.findByPage();
     }
 }

@@ -71,4 +71,16 @@ public class Student {
     public void setSclass(String sclass) {
         this.sclass = sclass == null ? null : sclass.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sysid='" + sysid + '\'' +
+                ", studentid='" + studentid + '\'' +
+                ", password='" + password + '\'' +
+                ", studentname='" + studentname + '\'' +
+                ", result=" + result +
+                ", sclass='" + sclass + '\'' +
+                '}';
+    }
 }

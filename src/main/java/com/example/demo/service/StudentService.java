@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Student;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 
@@ -22,4 +23,18 @@ public interface StudentService {
     //获取学生数量
     //public int countStudent();
     //public int countStudentByClass(String sclass);
+
+    /**
+     * 查找所有
+     * @return
+     */
+    public List<Student> findAll();
+
+    /**
+     * 分页查询
+     * @param pageNo 页号
+     * @param pageSize  每页显示的条数
+     * @return
+     */
+    public Page<Student> findByPage(int pageNo,int pageSize);
 }
