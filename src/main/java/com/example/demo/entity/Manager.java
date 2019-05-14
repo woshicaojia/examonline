@@ -9,6 +9,14 @@ public class Manager {
 
     private String managerpasswrod;
 
+    public Manager(){}
+
+    public Manager(String managerid,String managername,String managerpasswrod){
+        this.managerid = managerid;
+        this.managername = managername;
+        this.managerpasswrod = managerpasswrod;
+    }
+
     public String getSysid() {
         return sysid;
     }

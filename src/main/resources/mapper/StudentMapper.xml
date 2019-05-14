@@ -35,6 +35,10 @@
     where sysid = #{sysid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.example.demo.entity.Student" >
+
+    <selectKey keyProperty="sysid" resultType="String" order="BEFORE">
+      select  replace(uuid(),'-','')   from dual
+    </selectKey>
     insert into student (sysid, studentId, password, 
       studentName, result, sclass
       )

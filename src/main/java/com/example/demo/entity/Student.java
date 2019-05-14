@@ -13,6 +13,17 @@ public class Student {
 
     private String sclass;
 
+    public Student() {
+    }
+
+    public Student(String studentid, String password, String studentname, Integer result, String sclass) {
+        this.studentid = studentid;
+        this.password = password;
+        this.studentname = studentname;
+        this.result = result;
+        this.sclass = sclass;
+    }
+
     public String getSysid() {
         return sysid;
     }

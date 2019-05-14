@@ -25,4 +25,8 @@ public class TeacherServiceImpl implements TeacherService {
     public Teacher getTeacherInfo(String teacherId){
          return teacherMapper.selectByTeacherId(teacherId);
     }
+    //添加老师
+    public int addTeacher(Teacher teacher){
+        return teacherMapper.insert(teacher);
+    }
 }

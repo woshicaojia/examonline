@@ -17,6 +17,20 @@ public class Subject {
 
     private String stparse;
 
+    public Subject() {
+    }
+
+    public Subject(Integer stid, String sttitle, String stoptiona, String stoptionb, String stoptionc, String stoptiond, String stanswer, String stparse) {
+        this.stid = stid;
+        this.sttitle = sttitle;
+        this.stoptiona = stoptiona;
+        this.stoptionb = stoptionb;
+        this.stoptionc = stoptionc;
+        this.stoptiond = stoptiond;
+        this.stanswer = stanswer;
+        this.stparse = stparse;
+    }
+
     public Integer getStid() {
         return stid;
     }

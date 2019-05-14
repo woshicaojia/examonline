@@ -7,4 +7,6 @@ public interface TeacherService {
     public boolean allowLogin(String teacherId,String password);
     //返回老师的信息
     public Teacher getTeacherInfo(String teacherId);
+    //插入信息
+    int addTeacher(Teacher teacher);
 }
