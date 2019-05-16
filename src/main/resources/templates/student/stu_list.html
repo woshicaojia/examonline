@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>学生列表</title>
+    <link rel="stylesheet" th:href="@{/static/css/paging.css}"></link>
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.11.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/paging.js}"></script>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>班级</th>
+            </tr>
+            <tr th:each="stu:${pageInfo.list}">
+                <td>
+                    <div th:text="${stu.studentid}"></div>
+                </td>
+                <td>
+                    <div th:text="${stu.studentname}"></div>
+                </td>
+                <td>
+                    <div th:text="${stu.password}"></div>
+                </td>
+                <td>
+                    <div th:text="${stu.sclass}"></div>
+                </td>
+            </tr>
+        </table>
+        <div id="getpage"></div>
+    </div>
+</body>
+</html>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(function(){
+        debugger;
+        $('#getpage').paging({
+            initPageNo: [[${pageInfo.pageNum}]], // 初始页码
+            totalPages: [[${pageInfo.pages}]], //总页数
+            totalCount: '合计' + [[${pageInfo.total}]] + '条数据', // 条目总数
+            slideSpeed: 600, // 缓动速度。单位毫秒
+            jump: true, //是否支持跳转
+            callback: function(page) { // 回调函数
+                console.log(page);
+            }
+        });
+    });
+    /*]]>*/
+</script>
