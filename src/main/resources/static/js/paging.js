@@ -70,11 +70,11 @@
                 handles(pageIndex);
             })
             
-            jumpText.on("keyup",function(event){
+            /*jumpText.on("keyup",function(event){
 			  if(event.keyCode ==13){
 				  jumpBtn.trigger("click");
 			  }
-			});
+			});*/
 
             nextPage.on('click', function() {
                 pageIndex++;
@@ -110,7 +110,8 @@
             })
 
             function handles(pageIndex) {
-            	jumpText.val(pageIndex);
+            	// jumpText.val(pageIndex);
+                JumpToPage(pageIndex);
                 lis.removeClass('sel-page').eq(pageIndex - 1).addClass('sel-page');
                 if (totalPages <= 5) {
                     that.options.callback(pageIndex);

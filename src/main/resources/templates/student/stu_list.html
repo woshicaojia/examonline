@@ -31,24 +31,85 @@
                 </td>
             </tr>
         </table>
-        <div id="getpage"></div>
+        <div class="pagger-box pagger" id="box"></div>
     </div>
 </body>
 </html>
 <script th:inline="javascript">
     /*<![CDATA[*/
-    $(function(){
+    $(function() {
+        // ctxPath = [[@{/}]] ;
         debugger;
-        $('#getpage').paging({
-            initPageNo: [[${pageInfo.pageNum}]], // 初始页码
-            totalPages: [[${pageInfo.pages}]], //总页数
-            totalCount: '合计' + [[${pageInfo.total}]] + '条数据', // 条目总数
-            slideSpeed: 600, // 缓动速度。单位毫秒
-            jump: true, //是否支持跳转
-            callback: function(page) { // 回调函数
-                console.log(page);
-            }
-        });
+        function paging(total,pages,pageNun) {
+            $('#box').paging({
+                initPageNo: pageNun, // 初始页码
+                totalPages: pages, //总页数
+                totalCount: '合计' + total + '条数据', // 条目总数
+                slideSpeed: 600, // 缓动速度。单位毫秒
+                jump: true, //是否支持跳转
+                callback: function(page) { // 回调函数
+                    //httpPost(ctxPath+"stu/list",{pageNum:page});
+                    // window.location.href=ctxPath+"stu/list?pageNum="+page;
+                    loading(page);
+                    JumpToPage(page);
+                }
+            });
+        }
+        function JumpToPage(pagenum){
+            loading(pagenum);
+        }
+        function loading(pagenum){
+            $.ajax({
+                type:"POST",
+                url:"/stu/list",
+                dataType:"json",
+                data:{
+                    pageNum:pagenum
+                },
+                success:function(data){
+                    /*totalData 总数据 totalPage 总页数*/
+                    /* pagenum == 1 的时候，才需要对分页插件进行初始化 */
+                    if( pagenum == 1){
+                        paging(data.total,data.pages,pagenum);
+                    }
+                    /*数据渲染*/
+                    /*自定义的函数，可以根据自己的需求来写*/
+                    // displayData(data.tAdmin);
+                },
+                error:function(){
+                    alert("学生列表信息获取失败！");
+                }
+            });
+        }
     });
+    /*
+		URL:跳转地址
+		openWindow：打开新窗口（true）
+		PARAMS:请求参数
+	*/
+    httpPost = function(URL,openWindow,PARAMS) {
+        var _openWindow = false;
+        _openWindow = openWindow;
+        var temp = document.createElement("form");
+        temp.action = URL;
+        temp.method = "post";
+        temp.style.display = "none";
+        if(_openWindow==true){
+            temp.target="_blank";
+        }
+
+
+        for (var x in PARAMS) {
+            var opt = document.createElement("textarea");
+            opt.name = x;
+            opt.value = PARAMS[x];
+            temp.appendChild(opt);
+        }
+
+        document.body.appendChild(temp);
+        temp.submit();
+
+        return temp;
+    }
     /*]]>*/
 </script>

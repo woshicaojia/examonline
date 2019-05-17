@@ -47,7 +47,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public Page<Student> findByPage(int pageNo,int pageSize){
-        PageHelper.startPage(pageNo,pageSize);
+        Page<Student> page = PageHelper.startPage(pageNo,pageSize);
         return studentMapper.findByPage();
     }
 }
