@@ -34,7 +34,6 @@ public class StudentController {
     @RequestMapping("/list")
     public String list(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
                        @RequestParam(value = "pageSize",defaultValue = "5") int pageSize,HttpServletRequest request, Model model){
-        System.out.println("分页请求。。。");
         Page<Student> students = studentService.findByPage(pageNum,pageSize);
         PageInfo<Student> pageInfo = new PageInfo<>(students);
         model.addAttribute("pageInfo",pageInfo);

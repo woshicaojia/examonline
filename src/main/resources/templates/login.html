@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8"></meta>
     <title>在线考试系统</title>
-    <link rel="stylesheet" th:href="@{/static/css/style.default.css}" type="text/css" />
-    <link rel="stylesheet" th:href="@{/static/css/slidetounlock.css}" type="text/css"/>
+    <!--<link rel="stylesheet" th:href="css/style.default.css" type="text/css" />-->
+    <!--<link rel="stylesheet" th:href="css/slidetounlock.css" type="text/css"/>-->
 
-    <script type="text/javascript" th:src="@{/static/js/jquery-1.9.1.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/jquery-migrate-1.1.1.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/jquery-ui-1.9.2.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/modernizr.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/jquery.cookie.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/custom.js}"></script>
-    <script type="text/javascript" th:src="@{/static/js/slidetounlock.js}"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/slidetounlock.js"></script>
 </head>
 <body class="loginpage">
 <div class="loginpanel">
     <div class="loginpanelinner">
-        <div class="logo animate0 bounceIn"><img th:src="@{/static/images/logo.png}" alt="" /></div>
+        <div class="logo animate0 bounceIn"><img th:src="@{images/logo.png}" alt="" /></div>
         <form id="login" th:action="@{main}" method="post">
             <div class="inputwrapper login-alert">
                 <div class="alert alert-error">Invalid username or password</div>
@@ -44,7 +44,9 @@
             <div class="inputwrapper animate5 bounceIn">
                 <button id="submit" name="submit" class="btn" style="background-color: #e6e6e6;">登录</button>
             </div>
-
+            <div class="inputwrapper animate5 bounceIn">
+                <button id="submit2" name="submit" class="btn" style="background-color: #e6e6e6;">登录</button>
+            </div>
         </form>
     </div>
 </div>
