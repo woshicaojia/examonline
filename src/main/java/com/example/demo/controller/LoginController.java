@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.PrintWriter;
 
 @Controller
@@ -27,31 +26,28 @@ public class LoginController {
     }
     @RequestMapping(value="/main",method = RequestMethod.POST)
     //登录
-    public void LoginSuccess(Model model, HttpServletRequest request, HttpServletResponse response)throws  Exception{
+    public String LoginSuccess(Model model, HttpServletRequest request, HttpServletResponse response){
         String username=request.getParameter("username");
         String password=request.getParameter("password");
         String role=request.getParameter("role");
-//        PrintWriter pw=null;
-//        if("teacher".equals(role)){
-//              if(teacherService.allowLogin(username,password)){
-//                  Teacher teacher=teacherService.getTeacherInfo(username);
-//                  model.addAttribute("teacher",teacher);
-//                  request.getSession().setAttribute("teacherSession",teacher);
-//                  return "teacher/teacherIndex";
-//              }
-//        }else if("student".equals(role)){
-//              if(studentService.allowLogin(username,password)){
-//                  Student student=studentService.getStudentInfo(username);
-//                  model.addAttribute("student",student);
-//                  request.getSession().setAttribute("studentSession",student);
-//                  return "student/studentIndex";
-//              }
-//        }else{
-//              pw.print("<script>alert('请以教师或者学生身份登录');window.location.href='/exam/login';</script>");
-//        }
-//        return null;
-        if("student".equals(role)&&"1001".equals(username)&&"123456".equals(password)){
-            response.sendRedirect("stu/list");
+        PrintWriter pw=null;
+        if("teacher".equals(role)){
+              if(teacherService.allowLogin(username,password)){
+                  Teacher teacher=teacherService.getTeacherInfo(username);
+                  model.addAttribute("teacher",teacher);
+                  request.getSession().setAttribute("teacherSession",teacher);
+                  return "teacher/teacherIndex";
+              }
+        }else if("student".equals(role)){
+              if(studentService.allowLogin(username,password)){
+                  Student student=studentService.getStudentInfo(username);
+                  model.addAttribute("student",student);
+                  request.getSession().setAttribute("studentSession",student);
+                  return "student/studentIndex";
+              }
+        }else{
+              pw.print("<script>alert('请以教师或者学生身份登录');window.location.href='/login';</script>");
         }
+        return null;
     }
 }
