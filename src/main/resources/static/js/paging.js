@@ -7,7 +7,8 @@
             totalCount: options.totalCount || '', // 条目总数
             slideSpeed: options.slideSpeed || 0, // 缓动速度
             jump: options.jump || false, // 支持跳转
-            callback: options.callback || function() {} // 回调函数
+            callback: options.callback || function() {}, // 回调函数
+            url:options.url
         };
         this.init();
     }
@@ -57,6 +58,7 @@
                 liWidth = 45, // li的宽度
                 totalPages = that.options.totalPages, // 总页数
                 pageIndex = that.options.pageNo, // 当前选择的页码
+                url = that.options.url,
                 distance = 0, // ul移动距离
                 prePage = $el.find('.pre-page'),
                 nextPage = $el.find('.next-page'),
@@ -67,36 +69,36 @@
             prePage.on('click', function() {
                 pageIndex--;
                 if (pageIndex < 1) pageIndex = 1;
-                handles(pageIndex);
+                handles(pageIndex,true,url);
             })
             
-            /*jumpText.on("keyup",function(event){
+            jumpText.on("keyup",function(event){
 			  if(event.keyCode ==13){
 				  jumpBtn.trigger("click");
 			  }
-			});*/
+			});
 
             nextPage.on('click', function() {
                 pageIndex++;
                 if (pageIndex > lis.length) pageIndex = lis.length;
-                handles(pageIndex);
+                handles(pageIndex,true,url);
             })
 
             firstPage.on('click', function() {
                 pageIndex = 1;
-                handles(pageIndex);
+                handles(pageIndex,true,url);
             })
 
             lastPage.on('click', function() {
                 pageIndex = totalPages;
-                handles(pageIndex);
+                handles(pageIndex,true,url);
             })
 
             jumpBtn.on('click', function() {
                 var jumpNum = parseInt(jumpText.val().replace(/\D/g, ''));
                 if (jumpNum && jumpNum >= 1 && jumpNum <= totalPages) {
                     pageIndex = jumpNum;
-                    handles(pageIndex);
+                    handles(pageIndex,true,url);
                     jumpText.val(jumpNum);
                 }else{
                 	jumpText.val(totalPages);
@@ -106,12 +108,18 @@
 
             lis.on('click', function() {
                 pageIndex = $(this).index() + 1;
-                handles(pageIndex);
+                handles(pageIndex,true,url);
             })
 
-            function handles(pageIndex) {
-            	// jumpText.val(pageIndex);
-                JumpToPage(pageIndex);
+            function jumpToPage(url,pageIndex){
+                window.location.href=url+pageIndex;
+            }
+
+            function handles(pageIndex,isMutual,url) {
+                if(isMutual==true){
+                    jumpToPage(url,pageIndex)
+                }
+                jumpText.val(pageIndex);
                 lis.removeClass('sel-page').eq(pageIndex - 1).addClass('sel-page');
                 if (totalPages <= 5) {
                     that.options.callback(pageIndex);
@@ -128,7 +136,7 @@
                 that.options.callback(pageIndex);
             }
 
-            handles(that.options.pageNo); // 初始化页码位置
+            handles(that.options.pageNo,false); // 初始化页码位置
         }
     }
     $.fn.paging = function(options) {
