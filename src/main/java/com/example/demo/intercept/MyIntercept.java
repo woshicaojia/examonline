@@ -25,19 +25,16 @@ import java.io.IOException;
 public class MyIntercept implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws IOException {
+        /*System.out.println("我正在执行。。。。");
         Student stu = (Student) request.getSession().getAttribute("studentSession");
         if(null!=stu){
             System.out.println(stu);
             return true;
         }else{
-            request.setAttribute("errorMessage", "请重新登录！");
-            String script = "alert('对不起，由于您长时间没有操作，请重新登录！'); \n window.location.href='" + request.getContextPath() + "/';";
-            response.setContentType("text/html;charset=UTF-8");
-            response.getWriter().write("<script language=\"javascript\">");
-            response.getWriter().write("\n" + script + "\n");
-            response.getWriter().write("</script>");
+            response.sendRedirect(request.getContextPath()+"/login");
             return false;
-        }
+        }*/
+        return true;
     }
 
     @Override

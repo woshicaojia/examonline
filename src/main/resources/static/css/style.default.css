@@ -52,11 +52,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 a, a:link { color: blue; }
 h4 { font-size: 16px; }
 
-body {
-	background: url(../images/leftpanelbg.png) repeat-y 0 0; font-size: 12px;
+body { font-size: 12px;
 	font-family: 'RobotoRegular', 'Helvetica Neue', Helvetica, sans-serif; }
 body.errorpage { background: #fff url(../images/bg1.png);  }
-body.loginpage { background: #0866c6; }
 
 a,a:hover,a:link,a:active,a:focus { outline: none; color: #0866c6; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -69,7 +67,7 @@ h1,h2,h3,h4,h5 { font-weight: normal; line-height: normal; }
 
 /*** LOGIN PAGE ***/
 
-.loginpanel { position: absolute; top: 50%; left: 50%; height: 300px; }
+.loginpanel { position: absolute; top: 50%; left: 50%; height: 300px; margin-top: 60px;}
 .loginpanelinner { position: relative; top: -150px; left: -50%; }
 .loginpanelinner .logo { text-align: center; padding: 20px 0; }
 
@@ -79,8 +77,7 @@ h1,h2,h3,h4,h5 { font-weight: normal; line-height: normal; }
 		  display: block; border: 1px solid #0c57a3; padding: 10px; background: #0972dd; width: 100%;
 		  color: #fff; text-transform: uppercase; }
 .inputwrapper button:focus, .inputwrapper button:active, .inputwrapper button:hover { background: #1e82e8; }
-.inputwrapper label {
-		  display: inline-block; margin-top: 10px; color: rgba(255,255,255,0.8); font-size: 11px; vertical-align: middle; }
+.inputwrapper label {display: inline-block; margin-top: 10px; color: #333;}
 .inputwrapper label input { width: auto; margin: -3px 5px 0 0; vertical-align: middle; }
 .inputwrapper .remember { padding: 0; background: none; }
 
@@ -936,7 +933,7 @@ ul.list-inline li { display: inline-block; margin: 0 5px 10px 0; }
 .wizard .hormenu li a:hover { text-decoration: none; }
 .wizard .hormenu li a span.h2 { font-size: 16px; color: #999; display: block; margin-bottom: 5px; }
 .wizard .hormenu li span.label { display: block; color: #999; background: none; text-shadow: none; padding: 0; font-size: 12px; }
-.wizard .hormenu li a span.dot span { width: 20px; height: 20px; display: inline-block; background: url(../img/steps.png) no-repeat 0 -40px; }
+.wizard .hormenu li a span.dot span { width: 20px; height: 20px; display: inline-block; background: url(img/steps.png) no-repeat 0 -40px; }
 .wizard .hormenu li:first-child a span.dot { margin-left: 47%; text-align: left; }
 .wizard .hormenu li:last-child a span.dot { margin-right: 47%; text-align: right; }
 .wizard .hormenu li a.done { background: #0866c6; border-right: 1px solid rgba(255,255,255,0.2); }
@@ -1821,6 +1818,41 @@ table td.center, table th.center { text-align: center; }
 		  .table-infinite tr td:nth-child(2),
 		  .table-infinite tr th:nth-child(3),
 		  .table-infinite tr td:nth-child(3) { display: none; }
+}
+
+/*new*/
+.login-wrap {
+	background: url(images/login_bg.jpg) no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	position: fixed;
+}
+.login-wrap .logo{overflow: hidden;}
+.logo.animate0.bounceIn {
+	position: absolute;
+	top: -120px;
+	width: 100%;
+}
+.logo.animate0.bounceIn h1 {
+	color: #fff;
+	text-align: center;
+	text-shadow:-5px 3px 11px #000;
+}
+.inputwrapper.bounceIn input[type="text"],.inputwrapper.bounceIn input[type="password"],.inputwrapper.bounceIn button {
+	background: #fff;
+	border-radius: 5px;
+	box-shadow:0 0 4px #000 inset;
+	opacity: 0.8;
+	border: 0;
+}
+.inputwrapper.animate5.bounceIn button {
+	cursor: pointer;
+	margin-top: 10px;
+	font-size: 16px;
+}
+.inputwrapper.animate5.bounceIn button:hover{
+	background-color: #0a76e5;
+	color: #fff;
 }
 
 

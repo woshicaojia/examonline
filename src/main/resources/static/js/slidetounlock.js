@@ -8,6 +8,7 @@ jQuery(function($) {
 			if (ui.position.left > 210) {
 				//$("#well #unlock").fadeOut();
 				$("#submit").removeAttr("disabled");
+				$(this).parent().parent().css('background','#2c9317');
 			} else {
 				$("#submit").attr("disabled", "disabled");
 			}
@@ -18,7 +19,7 @@ jQuery(function($) {
 					left: 0
 				})
 			} else {
-				$(".inputwrapper button").css("background-color","#1e82e8");
+				$(".inputwrapper button").css("background-color","#2c9317");
 				$("#slider").draggable({
 					disabled: 'true',
 				});

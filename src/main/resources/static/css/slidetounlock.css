@@ -4,7 +4,8 @@
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	border: 2px solid #0c57a3;
+	background: #fff;
+	opacity: 0.8;
 	overflow: hidden;
 	-webkit-user-select: none;
 	margin-bottom: 7px;
