@@ -25,15 +25,11 @@ import java.io.IOException;
 public class MyIntercept implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws IOException {
-        /*System.out.println("我正在执行。。。。");
         Student stu = (Student) request.getSession().getAttribute("studentSession");
-        if(null!=stu){
-            System.out.println(stu);
-            return true;
-        }else{
-            response.sendRedirect(request.getContextPath()+"/login");
+        if(null == stu){
+            response.sendRedirect(request.getContextPath()+"/");
             return false;
-        }*/
+        }
         return true;
     }
 

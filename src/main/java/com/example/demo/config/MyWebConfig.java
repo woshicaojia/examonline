@@ -34,9 +34,14 @@ public class MyWebConfig extends WebMvcConfigurationSupport {
         super.addResourceHandlers(registry);
     }
 
+    /**
+     * 配置拦截器的不拦截的路径时，这个很重要。如果没配或者说配错的话都会有一个问题出现。
+     * 就是重定向次数过多，导致网页无法响应。
+     * @param registry
+     */
     protected void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(myIntercept).
-                addPathPatterns("/**").excludePathPatterns("/","/login");
+        registry.addInterceptor(new MyIntercept()).
+                addPathPatterns("/**").excludePathPatterns("/","/login","/main");
         super.addInterceptors(registry);
     }
 
