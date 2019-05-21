@@ -4,11 +4,14 @@
  */
 package com.example.demo.intercept;
 
+import com.example.demo.entity.Student;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 系统名称
@@ -18,10 +21,23 @@ import javax.servlet.http.HttpServletResponse;
  * @author caoj
  * @since 1.8
  */
+@Component
 public class MyIntercept implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) {
-        return false;
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws IOException {
+        Student stu = (Student) request.getSession().getAttribute("studentSession");
+        if(null!=stu){
+            System.out.println(stu);
+            return true;
+        }else{
+            request.setAttribute("errorMessage", "请重新登录！");
+            String script = "alert('对不起，由于您长时间没有操作，请重新登录！'); \n window.location.href='" + request.getContextPath() + "/';";
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().write("<script language=\"javascript\">");
+            response.getWriter().write("\n" + script + "\n");
+            response.getWriter().write("</script>");
+            return false;
+        }
     }
 
     @Override

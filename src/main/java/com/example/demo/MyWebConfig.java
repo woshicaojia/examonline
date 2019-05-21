@@ -5,6 +5,7 @@
 package com.example.demo;
 
 import com.example.demo.intercept.MyIntercept;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Configuration
 public class MyWebConfig extends WebMvcConfigurationSupport {
+    @Autowired
+    private MyIntercept myIntercept;
     //静态资源配置
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -35,7 +38,7 @@ public class MyWebConfig extends WebMvcConfigurationSupport {
     }
 
     protected void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new MyIntercept()).
+        registry.addInterceptor(myIntercept).
                 addPathPatterns("/**").excludePathPatterns("/","/login");
         super.addInterceptors(registry);
     }

@@ -34,15 +34,15 @@ public class LoginController {
         if("teacher".equals(role)){
               if(teacherService.allowLogin(username,password)){
                   Teacher teacher=teacherService.getTeacherInfo(username);
-                  model.addAttribute("teacher",teacher);
                   request.getSession().setAttribute("teacherSession",teacher);
+                  model.addAttribute("teacher",teacher);
                   return "teacher/teacherIndex";
               }
         }else if("student".equals(role)){
               if(studentService.allowLogin(username,password)){
                   Student student=studentService.getStudentInfo(username);
-                  model.addAttribute("student",student);
                   request.getSession().setAttribute("studentSession",student);
+                  model.addAttribute("student",student);
                   return "student/studentIndex";
               }
         }else{
