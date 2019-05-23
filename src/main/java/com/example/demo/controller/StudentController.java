@@ -26,11 +26,16 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-@RequestMapping("/stu")
+@RequestMapping("/student")
 public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    //学生首页
+    @RequestMapping("/main")
+    public String main(HttpServletRequest request,Model model){
+        return "";
+    }
     @RequestMapping("/list")
     public String list(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
                        @RequestParam(value = "pageSize",defaultValue = "5") int pageSize,HttpServletRequest request, Model model){

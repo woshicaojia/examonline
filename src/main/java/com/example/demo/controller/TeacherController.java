@@ -21,6 +21,11 @@ public class TeacherController {
     @Autowired
     private StudentService studentService;
 
+    //教师首页
+    @RequestMapping("/main")
+    public String main(HttpServletRequest request,Model model){
+        return "";
+    }
     @RequestMapping(value = "/addStudent")
     public String addStudent(Model model, HttpServletResponse response, HttpServletRequest request){
             

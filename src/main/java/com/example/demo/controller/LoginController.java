@@ -31,7 +31,6 @@ public class LoginController {
     @RequestMapping(value="/main",method = RequestMethod.POST)
     //登录
     public ModelAndView LoginSuccess(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ModelAndView mv = new ModelAndView();
         String username=request.getParameter("username");
         String password=request.getParameter("password");
         String role=request.getParameter("role");
@@ -41,21 +40,23 @@ public class LoginController {
               if(teacherService.allowLogin(username,password)){
                   Teacher teacher=teacherService.getTeacherInfo(username);
                   request.getSession().setAttribute("teacherSession",teacher);
-                  mv.addObject("teacher",teacher);
-                  mv.setViewName("teacher/teacherIndex");
-                  return mv;
+//                  mv.addObject("teacher",teacher);
+//                  mv.setViewName("teacher/teacherIndex");
+//                  return mv;
+                  return new ModelAndView("redirect:/teacher/main");
               }else{
-                  resMap.put("msg","The teacher login in success");
+                  resMap.put("msg","The teacher login in failed");
               }
         }else if("student".equals(role)){
               if(studentService.allowLogin(username,password)){
                   Student student=studentService.getStudentInfo(username);
                   request.getSession().setAttribute("studentSession",student);
-                  mv.addObject("student",student);
-                  mv.setViewName("student/studentIndex");
-                  return mv;
+//                  mv.addObject("student",student);
+//                  mv.setViewName("student/studentIndex");
+//                  return mv;
+                  return new ModelAndView("redirect:student/main");
               }else{
-                  resMap.put("msg","The teacher login in failed");
+                  resMap.put("msg","The student login in failed");
               }
         }else{
               response.setContentType("text/html;charset=utf-8");
